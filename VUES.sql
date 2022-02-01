@@ -43,3 +43,34 @@ VALUES
         900,
         60
     );
+
+--Q4--
+CREATE VIEW emp_sec_2 AS
+SELECT
+    *
+from
+    Personne
+WHERE
+    PosteP = 'SECRETAIRE' WITH CHECK OPTION;
+
+--Q5--
+CREATE VIEW emp300 AS
+SELECT
+    *
+FROM
+    emp_sec_2
+WHERE
+    SalaireP > 300;
+
+--Q6--
+INSERT INTO
+    emp300
+VALUES
+    (
+        8010,
+        'DAHMANI',
+        'SECRETAIRE',
+        TO_DATE('23-05-01', 'DD-MM-YYYY'),
+        250,
+        30
+    );

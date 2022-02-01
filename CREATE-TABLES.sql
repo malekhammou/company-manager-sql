@@ -26,10 +26,10 @@ CREATE TABLE Projet(
 );
 
 /* Affectation */
-CREATE TABLE Affecation(
+CREATE TABLE Affecations(
     NumPersAff NUMBER(4) REFERENCES Personne(NumP),
     NumProjAff VARCHAR2(4) REFERENCES Projet(NumProj),
     DateAffect DATE,
     NbHeures NUMBER(3),
-    CONSTRAINT pk PRIMARY KEY(NumPersAff, NumProjAff)
+    CONSTRAINT pka PRIMARY KEY(NumPersAff, NumProjAff)
 );

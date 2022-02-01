@@ -375,9 +375,9 @@ VALUES
         TO_DATE('05-05-2001', 'DD-MM-YYYY')
     );
 
-/* Affectation */
+/* Affecations */
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7902,
@@ -387,7 +387,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7902,
@@ -397,7 +397,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7902,
@@ -407,7 +407,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7788,
@@ -417,7 +417,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7788,
@@ -427,7 +427,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7902,
@@ -437,7 +437,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7654,
@@ -447,7 +447,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7902,
@@ -457,7 +457,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7501,
@@ -467,7 +467,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7902,
@@ -477,7 +477,7 @@ VALUES
     );
 
 INSERT INTO
-    Affectation
+    Affecations
 VALUES
     (
         7477,
