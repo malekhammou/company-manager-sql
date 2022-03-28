@@ -140,3 +140,61 @@ begin for e in curseur_emp loop DBMS_OUTPUT.PUT_LINE(
 end loop;
 
 end;
+
+-------------------------------------
+--CURSOR WITH PARAMETER
+ACCEPT numS NUMBER PROMPT 'PLEASE TYPE THE DEPARTMENT SERVICE?';
+
+DECLARE CURSOR curseur_serv(numS NUMBER) IS
+SELECT
+    Personne.Nomp,
+    Affectation.NumProjAff
+from
+    Personne,
+    Affectation
+WHERE
+    Personne.NumServP = numS
+    and Affectation.NumPersAff = Personne.NumP;
+
+begin for e in curseur_serv(& numS) loop DBMS_OUTPUT.PUT_LINE(
+    'le nom est: ' || e.NomP || ' . Il est affecté au projet : ' || e.NumProjAff
+);
+
+end loop;
+
+end;
+
+----------
+--NESTED CURSORS
+ACCEPT numS NUMBER PROMPT 'PLEASE TYPE THE DEPARTMENT SERVICE? ';
+
+DECLARE CURSOR curseur_serv(numS NUMBER) IS
+SELECT
+    Personne.Nomp,
+    Personne.Nump
+from
+    Personne
+WHERE
+    Personne.NumServP = numS;
+
+CURSOR curseur_Proj(numP NUMBER) IS
+SELECT
+    NumProjAff,
+    NumPersAff
+from
+    Affectation,
+    Personne
+WHERE
+    Personne.NumP = Affectation.NumPersAff;
+
+begin for e in curseur_serv(& numS) loop for e2 in curseur_Proj(e.numP) loop if e.NumP = e2.NumPersAff then DBMS_OUTPUT.PUT_LINE(
+    'le nom est: ' || e.NomP || ' . Il est affecté au projet : ' || e2.NumProjAff
+);
+
+end if;
+
+end loop;
+
+end loop;
+
+end;
