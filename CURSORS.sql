@@ -198,3 +198,65 @@ end loop;
 end loop;
 
 end;
+
+----------- FOR UPDATE-------
+declare cursor c1 is...........for
+update
+    no wait;
+
+begin open c1loop...
+update
+    table
+set
+    fffff
+where
+    CURRE ? T of c1 ----------------------------------
+    ---------------------
+    DECLARE CURSOR curseur_sal IS
+SELECT
+    salaireP
+from
+    Personne
+WHERE
+    NumServP = 10 FOR
+update
+;
+
+begin for e in curseur_sal loop
+update
+    Personne
+set
+    salaireP = salaireP * 1.1
+where
+    current of curseur_sal;
+
+end loop;
+
+end;
+
+----------------------------ROWCOUNT------------
+DECLARE CURSOR curseur_serv IS
+SELECT
+    nomP
+from
+    Personne
+WHERE
+    NumServP = 10;
+
+nom personne.nomP % type;
+
+begin open curseur_serv;
+
+loop fetch curseur_serv into nom;
+
+EXIT
+WHEN curseur_serv % ROWCOUNT > 6
+or curseur_serv % NOTFOUND;
+
+DBMS_OUTPUT.PUT_LINE(nom);
+
+end loop;
+
+close curseur_serv;
+
+end;

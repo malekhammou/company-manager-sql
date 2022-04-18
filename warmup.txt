@@ -13,6 +13,8 @@ mypoint.abscisse:=2;
 mypoint.ordonnee:=5;
 dbms_output.put_line('abscisse:'|| mypoint.abscisse || 'ordonnee:' || mypoint.ordonnee);
 end;
+
+
 ----------------------------------------
 set serveroutput on
 DECLARE nom varchar2(15);
