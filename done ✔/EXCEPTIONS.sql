@@ -1,26 +1,3 @@
-DECLARE CURSOR curseur_emp IS
-SELECT
-    nomP
-from
-    Personne
-WHERE
-    DATEEMBP > '01-JAN-1990'
-update
-;
-
-begin for e in curseur_sal loop
-update
-    Personne
-set
-    salaireP = salaireP * 1.1
-where
-    current of curseur_sal;
-
-end loop;
-
-end;
-
------------------------------------------------
 DECLARE nom personne.nomP % type;
 
 begin
@@ -81,9 +58,9 @@ end;
 -------------------------------
 --RAISE
 -------------------------------
-ACCEPT nom varchar(20) prompt 'saisir nom';
+ACCEPT nom prompt 'saisir nom';
 
-ACCEPT num NUMBER(20) prompt 'saisir numero';
+ACCEPT num NUMBER prompt 'saisir numero';
 
 declare my_exception exception;
 

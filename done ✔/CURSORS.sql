@@ -260,3 +260,26 @@ end loop;
 close curseur_serv;
 
 end;
+
+---------------------
+DECLARE CURSOR curseur_emp IS
+SELECT
+    nomP
+from
+    Personne
+WHERE
+    DATEEMBP > '01-JAN-1990'
+update
+;
+
+begin for e in curseur_sal loop
+update
+    Personne
+set
+    salaireP = salaireP * 1.1
+where
+    current of curseur_sal;
+
+end loop;
+
+end;

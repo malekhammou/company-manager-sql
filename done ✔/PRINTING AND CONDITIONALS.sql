@@ -15,7 +15,7 @@ end;
 set
     serveroutput on variable var1 number default 0;
 
-DECLARE num NUMBER(5);
+DECLARE num NUMBER(5) := 1;
 
 BEGIN num := num + 5;
 
@@ -204,6 +204,8 @@ end;
 / ----------------------------------------------------------------------------------------------
 ACCEPT numserv NUMBER PROMPT 'Type the code of your service: ';
 
+--------------
+---------------
 DECLARE nbemp NUMBER(8);
 
 salmoy NUMBER(10);
@@ -233,16 +235,15 @@ where
     numServP = & numserv;
 
 case
-    & numserv
-    when 10 then dbms_output.put_line(
+    when & numserv = 10 then dbms_output.put_line(
         'le nombre total d''employés du service ' || & numserv || ' est:' || nbemp
     );
 
-when 30 then dbms_output.put_line(
+when & numserv = 30 then dbms_output.put_line(
     'le salaire moyen du service ' || & numserv || ' est:' || salmoy
 );
 
-when 60 then dbms_output.put_line(
+when & numserv = 60 then dbms_output.put_line(
     'le salaire maximal du service ' || & numserv || ' est:' || salmax
 );
 
@@ -253,5 +254,4 @@ end case
 
 end;
 
-/ --------------
----------------
+/

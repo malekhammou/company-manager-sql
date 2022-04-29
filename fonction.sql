@@ -1,79 +1,82 @@
-create or replace function nbre_emp(y number)
-return  number 
-is 
-
-i number ;
+create
+or replace function nbre_emp(y number) return number is i number;
 
 begin
-
-select count(*) into i from Personne where NumServP =y ;
+select
+    count(*) into i
+from
+    Personne
+where
+    NumServP = y;
 
 return i;
 
-end  ; 
+end;
+
 /
+select
+    nbre_emp(10)
+from
+    dual;
 
-select nbre_emp(10) from dual ; 
+create
+or replace function minimum(a number, b number) return number is begin if (a < b) then return a;
 
+else return minimum(a - b, b);
 
-create or replace function minimum(a number , b number)
-return  number 
-is 
+end if;
+
+end;
+
+/
+select
+    minimum(100, 55)
+from
+    dual;
+
+create
+or replace function verif_sal(num in number) return boolean is i number;
+
+salaire number;
+
+numS number;
 
 begin
+select
+    SalaireP,
+    NumServP into salaire,
+    numS
+from
+    Personne
+where
+    numP = num;
 
-if ( a < b) then
-return a ;
-else 
-return minimum(a-b,b);
-end if ;
+exception
+when NO_DATA_FOUND then return Null;
 
-end  ; 
-/
+select
+    avg(SalaireP) into i
+from
+    Personne
+where
+    NumServP = numS;
 
-select minimum(100,55) from dual ; 
+if (i < salaire) then return True;
 
+elsif (i > salaire) then return False;
 
-create or replace function verif_sal(num in number)
-return  boolean  
-is 
+end if;
 
-i number; 
-salaire number ; 
-numS number ; 
-begin
+end;
 
-select SalaireP ,NumServP into salaire, numS from Personne where numP =num ; 
+/ begin if(verif_sal(25)) then dbms_output.put_line('True');
 
+elsif (verif_sal(25) = False) then dbms_output.put_line('False');
 
-exception when NO_DATA_FOUND then     
-return Null; 
+else dbms_output.put_line('erreur');
 
-select avg(SalaireP) into i  from Personne where NumServP =numS ; 
+end if;
 
+end;
 
-if ( i < salaire) then
-return True ;
-else 
-if( i > salaire) then
-return False;
-end if ;
-end if ;
-end  ; 
-/
-
-
-begin 
-if(verif_sal(25)) then
-    dbms_output.put_line('True'); 
-
-elsif (verif_sal(25)=False) then
-    dbms_output.put_line('False'); 
-
-else 
-    dbms_output.put_line('erreur'); 
-
-end if ;
-
-end ; 
 /
